@@ -7,8 +7,8 @@ import retrofit2.Response
 
 class ProductFetcher {
 
-    fun search(term : String) {
-
+    fun search(term : String) : List<Product>? {
+        var products : List<Product>? = null
         // Fetch products
         RetrofitInstance.api.searchProducts(term).enqueue(object : Callback<ProductResponse> {
             override fun onResponse(
@@ -16,14 +16,13 @@ class ProductFetcher {
                 response: Response<ProductResponse>
             ) {
                 if (response.isSuccessful) {
-                    // Log the product titles
-                    val products : List<Product>? = response.body()?.products
-//                    response.body()?.products?.forEach { product ->
+
+                    products= response.body()?.products
+
                     products?.forEach { product ->
                         Log.d("MainActivity", "Product: ${product.title}")
                         Log.d("MainActivity", "Product description: ${product.description}")
                         Log.d("MainActivity", "Product Thumbnail: ${product.thumbnail}")
-
                     }
                 } else {
                     Log.e("MainActivity", "Error: ${response.code()}")
@@ -34,6 +33,6 @@ class ProductFetcher {
                 Log.e("MainActivity", "Failed to fetch data", t)
             }
         })
-
+        return products
     }
 }
