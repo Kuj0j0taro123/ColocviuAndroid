@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
                     // Log the product titles
                     response.body()?.products?.forEach { product ->
                         Log.d("MainActivity", "Product: ${product.title}")
+                        Log.d("MainActivity", "Product description: ${product.description}")
                     }
                 } else {
                     Log.e("MainActivity", "Error: ${response.code()}")
