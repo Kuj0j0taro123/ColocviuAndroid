@@ -1,38 +1,25 @@
 package com.github.kuj0j0taro123.myapplication
 
-import android.util.Log
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
 
 class ProductFetcher {
 
-    fun search(term : String) : List<Product>? {
-        var products : List<Product>? = null
-        // Fetch products
-        RetrofitInstance.api.searchProducts(term).enqueue(object : Callback<ProductResponse> {
-            override fun onResponse(
-                call: Call<ProductResponse>,
-                response: Response<ProductResponse>
-            ) {
-                if (response.isSuccessful) {
-
-                    products= response.body()?.products
-
-                    products?.forEach { product ->
-                        Log.d("MainActivity", "Product: ${product.title}")
-                        Log.d("MainActivity", "Product description: ${product.description}")
-                        Log.d("MainActivity", "Product Thumbnail: ${product.thumbnail}")
-                    }
-                } else {
-                    Log.e("MainActivity", "Error: ${response.code()}")
-                }
+    suspend fun search(term: String): List<Product>? {
+        return try {
+            // Switch to IO dispatcher to perform the network call
+            val response = withContext(Dispatchers.IO) {
+                RetrofitInstance.api.searchProducts(term)
             }
 
-            override fun onFailure(call: Call<ProductResponse>, t: Throwable) {
-                Log.e("MainActivity", "Failed to fetch data", t)
-            }
-        })
-        return products
+            // If the response is successful, return the products
+            response.products
+        } catch (e: Exception) {
+            // Handle any errors such as network issues
+            e.printStackTrace()
+            null
+        }
     }
+
 }

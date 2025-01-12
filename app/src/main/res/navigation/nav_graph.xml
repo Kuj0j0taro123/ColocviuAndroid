@@ -18,5 +18,10 @@
         android:id="@+id/productListFragment"
         android:name="com.github.kuj0j0taro123.myapplication.ProductListFragment"
         android:label="fragment_product_list"
-        tools:layout="@layout/fragment_product_list" />
+        tools:layout="@layout/fragment_product_list" >
+        <argument
+            android:name="ProductsArgument"
+            app:argType="com.github.kuj0j0taro123.myapplication.Product[]"
+            app:nullable="true" />
+    </fragment>
 </navigation>
