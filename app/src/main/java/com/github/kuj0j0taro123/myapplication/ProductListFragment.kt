@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.view.marginBottom
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 
@@ -36,8 +37,9 @@ class ProductListFragment : Fragment() {
             val imageView = ImageView(context).apply{
 
                 layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
+                    600,
+                    600,
+
                 )
             }
 
