@@ -4,6 +4,7 @@ plugins {
 }
 
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "kotlin-parcelize"
 
 android {
     namespace 'com.github.kuj0j0taro123.myapplication'
