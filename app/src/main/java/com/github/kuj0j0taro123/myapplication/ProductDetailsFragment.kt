@@ -1,6 +1,7 @@
 package com.github.kuj0j0taro123.myapplication
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.GlideBuilder
 
 class ProductDetailsFragment : Fragment() {
     override fun onCreateView(
@@ -24,9 +26,10 @@ class ProductDetailsFragment : Fragment() {
 
         val product = ProductDetailsFragmentArgs.fromBundle(this.requireArguments()).ProductArgument
 
-//        // load image
-//        Glide.with(requireContext()).load(product?.thumbnail).into(detailsImageView) // causes a crash for some reason
-//        // load prod text
+        // load image
+
+        Glide.with(requireContext()).load(product?.thumbnail).into(detailsImageView)
+        // load prod text
         titleTextView.text = product?.title
         detailsTextView.text = product?.description
 

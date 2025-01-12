@@ -6,37 +6,34 @@
     tools:context=".ProductDetailsFragment"
     android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <ImageView
-        android:id="@+id/product_details_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+        <ImageView
+            android:id="@+id/product_details_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
 
-    <TextView
-        android:id="@+id/product_title_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/product_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
 
-        />
+            />
 
-    <TextView
-        android:id="@+id/product_details_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/product_details_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        />
+            />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/product_details_back_button"
-        android:text="@string/back_button_text"
-        />
-
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_details_back_button"
+            android:text="@string/back_button_text"
+            />
 
 </LinearLayout>
