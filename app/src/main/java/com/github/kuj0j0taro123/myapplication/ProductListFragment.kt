@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
 
 class ProductListFragment : Fragment() {
@@ -30,15 +32,16 @@ class ProductListFragment : Fragment() {
 //            Log.d("MainActivity", "Product: ${product.title}")
 //            Log.d("MainActivity", "Product description: ${product.description}")
 //            Log.d("MainActivity", "Product Thumbnail: ${product.thumbnail}")
-            val textView = TextView(context).apply{
-                text = product.title
-                textSize = 18f
+            val imageView = ImageView(context).apply{
+
                 layoutParams = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
                 )
             }
-            productListLayout.addView(textView)
+
+            Glide.with(requireContext()).load(product.thumbnail).into(imageView)
+            productListLayout.addView(imageView)
         }
 
         return view
