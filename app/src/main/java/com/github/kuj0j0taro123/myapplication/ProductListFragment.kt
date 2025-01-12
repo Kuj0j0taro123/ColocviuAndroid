@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 
 
@@ -41,6 +42,12 @@ class ProductListFragment : Fragment() {
             }
 
             Glide.with(requireContext()).load(product.thumbnail).into(imageView)
+
+            imageView.setOnClickListener{
+                val action = ProductListFragmentDirections.actionProductListFragmentToProductDetailsFragment(product)
+                view.findNavController().navigate(action)
+            }
+
             productListLayout.addView(imageView)
         }
 

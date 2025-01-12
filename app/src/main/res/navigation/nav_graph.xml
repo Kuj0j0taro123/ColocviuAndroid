@@ -23,5 +23,18 @@
             android:name="ProductsArgument"
             app:argType="com.github.kuj0j0taro123.myapplication.Product[]"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_productListFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.github.kuj0j0taro123.myapplication.ProductDetailsFragment"
+        android:label="fragment_product_details"
+        tools:layout="@layout/fragment_product_details" >
+        <argument
+            android:name="ProductArgument"
+            app:argType="com.github.kuj0j0taro123.myapplication.Product"
+            app:nullable="true" />
     </fragment>
 </navigation>
